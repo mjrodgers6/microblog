@@ -2,8 +2,22 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './models'
 require 'sinatra/reloader'
+require 'rack-flash'
+require 'bundler/setup'
 
 set :database, "sqlite3:microblog.sqlite3"
+
+enable :sessions
+
+use Rack::Flash, sweep: true
+
+get '/' do
+  if current_user
+    redirect '/profile'
+  else
+    redirect '/sign-in'
+  end
+end
 
 get '/sign-up' do 
   erb :signup
@@ -17,5 +31,49 @@ post '/sign-up' do
     "SIGNED UP #{@user.username}"
   else
     "Your password and confirmation did not match. Try Again."
+  end
+end
+
+get '/sign-in' do
+  erb :signin
+end
+
+get '/welcome' do
+  if current_user
+    erb :welcome 
+  else
+    flash[:notice] = "Please log in"
+    redirect '/'
+  end
+end
+
+post "/sign-in" do
+  username = params[:username]
+  password = params[:password]
+
+  @user = User.where(username: username).first
+
+  if @user.password == password
+    session[:user_id] = @user.id
+    flash[:notice] = "Welcome #{@user.username}!"
+    redirect '/welcome'
+  else
+    flash[:notice] = "Wrong login info, please try again"
+    redirect '/'
+  end
+end
+
+def current_user
+  if session[:user_id]
+    User.find session[:user_id]
+  end
+end
+
+get '/account' do
+  @user = current_user
+  if current_user
+    erb :account
+  else
+    redirect '/sign-in'
   end
 end
