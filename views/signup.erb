@@ -4,22 +4,25 @@
 <head>
     <link rel="stylesheet" type="text/css" href="signinup.css">
     <meta charset='UTF-8'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Amatic+SC' rel='stylesheet' type='text/css'>
     <title>Stream</title>
 </head>
 
 <body>
   <div class="sky">
     <h1>Stream</h1>
-    <form method="POST" action="/sign-up">
-      <input type="text" name="[user]username" placeholder="Username">
-      <input type="text" name="[user]email" placeholder="Email">
-      <input type="password" name="[user]password" placeholder="Password">
-      <input type="password" name="confirm_password" placeholder="Confirm Password">
-      <input type="text" name="[profile]location" placeholder="Location">
-      <input type="text" name="[profile]occupation" placeholder="Occupation">
-      <input type="text" name="[profile]age" placeholder="Age">
-      <input type="submit">
-    </form>
+    <div class="sign">
+      <form method="POST" action="/sign-up">
+        <input type="text" name="[user]username" placeholder="Username"><br>
+        <input type="text" name="[user]email" placeholder="Email"><br>
+        <input type="password" name="[user]password" placeholder="Password"><br>
+        <input type="password" name="confirm_password" placeholder="Confirm Password"><br>
+        <input type="text" name="[profile]location" placeholder="Location"><br>
+        <input type="text" name="[profile]occupation" placeholder="Occupation"><br>
+        <input type="text" name="[profile]age" placeholder="Age"><br>
+        <input type="submit">
+      </form>
+    </div>
     
     <div class="clouds_one"></div>
     <div class="clouds_two"></div>

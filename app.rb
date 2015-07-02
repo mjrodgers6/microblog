@@ -21,7 +21,7 @@ get '/' do
 end
 
 get '/sign-up' do 
-  erb :signup
+  erb :signup, :layout => false
 end
 
 post '/sign-up' do
@@ -36,7 +36,7 @@ post '/sign-up' do
 end
 
 get '/sign-in' do
-  erb :signin
+  erb :signin, :layout => false
 end
 
 get '/welcome' do
