@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701204503) do
+ActiveRecord::Schema.define(version: 20150702201749) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "posttime"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20150701204503) do
     t.string "username"
     t.string "email"
     t.string "password"
+    t.string "fname"
+    t.string "lname"
   end
 
 end
