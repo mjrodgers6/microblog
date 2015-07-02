@@ -5,7 +5,6 @@ require './models'
 require 'rack-flash'
 require 'bundler/setup'
 
-set :database, "sqlite3:microblog.sqlite3"
 
 enable :sessions
 
