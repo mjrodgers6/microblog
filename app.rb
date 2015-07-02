@@ -9,6 +9,8 @@ set :database, "sqlite3:microblog.sqlite3"
 
 enable :sessions
 
+configure(:development){set :database, "sqlite3:microblog.sqlite3"}
+
 use Rack::Flash, sweep: true
 
 get '/' do

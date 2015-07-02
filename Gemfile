@@ -5,8 +5,15 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'rake'
 gem 'sinatra-activerecord'
-gem 'sqlite3'
 gem 'activerecord'
 gem 'rack-flash3'
+
+group :development do         
+  gem 'sqlite3'   
+end   
+
+group :production do         
+  gem 'pg'   
+end
 
 # gem "rails"
