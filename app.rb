@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require './models'
+require './models.rb'
 require 'sinatra/reloader'
 require 'rack-flash'
 require 'bundler/setup'
@@ -76,4 +76,11 @@ get '/account' do
   else
     redirect '/sign-in'
   end
+end
+
+get '/signout' do
+
+  session[:user_id] = nil
+  flash[:notice] = "Signed Out Successfully.  Come back soon!"
+  redirect '/'
 end
