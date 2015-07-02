@@ -28,11 +28,10 @@ post '/sign-up' do
   confirmation = params[:confirm_password]
 
   if confirmation == params[:user][:password]
-    @user = User.create(params[:user])
-    params[:profile].merge!(user_id: @user.id)
-    Profile.create(params[:profile])
-    "SIGNED UP #{@user.username}"
-    puts params[:profile]
+    @user = User.create(params[:user])       
+    @user.create_profile(params[:profile])
+
+    redirect '/welcome'
   else
     "Your password and confirmation did not match. Try Again."
   end
