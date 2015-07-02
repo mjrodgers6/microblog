@@ -6,11 +6,20 @@ require 'rack-flash'
 require 'bundler/setup'
 
 
+set :database, "sqlite3:microblog.sqlite3"
 enable :sessions
 
 configure(:development){set :database, "sqlite3:microblog.sqlite3"}
 
 use Rack::Flash, sweep: true
+
+
+def current_user
+  if session[:user_id]
+    User.find session[:user_id]
+  end
+end
+
 
 get '/' do
   if current_user
@@ -41,15 +50,6 @@ get '/sign-in' do
   erb :signin, :layout => false
 end
 
-get '/welcome' do
-  if current_user
-    erb :welcome 
-  else
-    flash[:notice] = "Please log in"
-    redirect '/'
-  end
-end
-
 post "/sign-in" do
   username = params[:username]
   password = params[:password]
@@ -66,9 +66,12 @@ post "/sign-in" do
   end
 end
 
-def current_user
-  if session[:user_id]
-    User.find session[:user_id]
+get '/welcome' do  #sign-in should probably send you to /account
+  if current_user
+    erb :welcome 
+  else
+    flash[:notice] = "Please log in"
+    redirect '/'
   end
 end
 
@@ -86,4 +89,9 @@ get '/signout' do
   session[:user_id] = nil
   flash[:notice] = "Signed Out Successfully.  Come back soon!"
   redirect '/'
+end
+
+get '/feed' do
+
+  erb :feed
 end
