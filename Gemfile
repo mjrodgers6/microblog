@@ -2,14 +2,14 @@
 source "https://rubygems.org"
 
 gem 'sinatra'
-gem 'sinatra-contrib'
 gem 'rake'
 gem 'sinatra-activerecord'
 gem 'activerecord'
 gem 'rack-flash3'
 
 group :development do         
-  gem 'sqlite3'   
+  gem 'sqlite3'
+  # gem 'sinatra-contrib'   
 end   
 
 group :production do         
