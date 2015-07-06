@@ -1,26 +1,52 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
+  <title>TEST</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="main.css">
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Amatic+SC' rel='stylesheet' type='text/css'>
+  <meta charset='UTF-8'>
 </head>
-
 <body>
-<% if flash[:notice] %>
-
-  <div class="notice" style="background:yellow">
-    <%= flash[:notice] %>
+  <div class="burger group">
+    <img class="cloud" src="cloud.png">
   </div>
 
+  <nav id="nav-menu" class="closed">
+    <ul class="menu">
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/post">Post</a></li>
+      <li><a href="/feed">Feed</a></li>
+      <li>
+        <% if current_user %>
+        <a href="/signout">Sign Out</a>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="header">
+      <h1>STREAM</h1>
+      <div class="clouds_one"></div>
+      <div class="clouds_two"></div>
+      <div class="clouds_three"></div>
+    </div>
+
+  <div id="wrapper" class="menu-closed">
+    <%= yield %>
+
+    <% if flash[:notice] %>
+      <div class="notice">
+    <%= flash[:notice] %>
+      </div>
+
 <% end %>
+  </div>
 
-<% if current_user %>
-  <a href="/signout">Sign Out</a>
-<% end %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
 
-<%= flash[:warning] if flash[:warning] %>
-
-<p>
-<%= yield %>
-</p>
 </body>
 </html>

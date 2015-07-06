@@ -29,9 +29,9 @@ post '/sign-up' do
 
   if confirmation == params[:user][:password]
     @user = User.create(params[:user])
-    "SIGNED UP #{@user.username}"
+    flash[:notice] = "SIGNED UP #{@user.username}"
   else
-    "Your password and confirmation did not match. Try Again."
+    flash[:notice] = "Your password and confirmation did not match. Try Again."
   end
 end
 
