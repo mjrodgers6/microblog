@@ -33,7 +33,7 @@ post '/sign-up' do
     flash[:notice] = "Welcome to Stream! Now your life is awesome!"
     redirect '/profile'
   else
-    flash[:alert] = "Your password "
+    flash[:alert] = "Your password and username don't match"
   end
 end
 
