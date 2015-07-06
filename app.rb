@@ -36,7 +36,7 @@ post '/sign-up' do
 end
 
 get '/sign-in' do
-  erb :signin, :layout => false
+  erb :signinup, :layout => false
 end
 
 get '/welcome' do
@@ -56,7 +56,7 @@ post "/sign-in" do
 
   if @user.password == password
     session[:user_id] = @user.id
-    flash[:notice] = "Welcome #{@user.username}!"
+    flash[:notice] = "Welcome #{@profile.fname}!"
     redirect '/welcome'
   else
     flash[:notice] = "Wrong login info, please try again"
