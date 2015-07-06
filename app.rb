@@ -1,4 +1,4 @@
-require 'sinatra'
+ require 'sinatra'
 require 'sinatra/activerecord'
 # require 'sinatra/reloader'
 require './models'
@@ -47,12 +47,11 @@ end
 
 post '/sign-up' do
   confirmation = params[:confirm_password]
-
-  if User.find_by(params[:user])
+  @user = User.find_by_username(params[:user][:username])
+  if @user 
     flash[:notice] = "This user exists already"
     erb :signup
-  elsif
-    confirmation == params[:user][:password]
+  elsif confirmation == params[:user][:password]
     @user = User.create(params[:user])       
     @user.create_profile(params[:profile])
     flash[:notice] = "Welcome to Stream! Now your life is awesome!"
