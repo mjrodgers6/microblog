@@ -4,11 +4,11 @@
   <% @posts.each do |post| %>
   
   <div class="post">
-    <h2>#{@posts.user.username}</h2>
+    <h2> <%= posts.user.username %></h2>
     
-    <p>#{posts.posttext}</p>
+    <p><%= posts.posttext %> </p>
 
-    <div class="tstamp">#{@posts.posttime}</div>
+    <div class="tstamp"> <%= posts.posttime %></div>
 
   </div>
   
