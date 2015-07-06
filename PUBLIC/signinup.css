@@ -11,11 +11,20 @@ html,body {
       font-size: 100px;
     }
 
+    h3{
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      text-align: center;
+      font-size: 22px;
+      font-weight: normal;
+    }
+
     form{
       margin-left: auto;
       margin-right: auto;
       z-index: 1;
     }
+
     input{
       padding: 10px;
       margin: 10px;
@@ -24,12 +33,46 @@ html,body {
       font-family: 'Josefin Sans', sans-serif;
       font-size: 20px;
       z-index: 1;
+      border: solid white 1px;
+      border-radius: 5px;
     }
 
-    
+    span{
+     /* -webkit-transition: all 0.5s ease 0.s;
+      -moz-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s;*/
+    }
+
+    span:hover{
+      cursor: pointer;
+      /*-webkit-transform: translate(0, 4px);*/
+      /*color: #007fd5;*/
+      font-weight: bold;
+    }
+
+    .submit{
+      border-radius:5px;
+      margin: 10px;
+      width: 20%;
+      padding:10px;
+      background-color: #007fd5;  
+      border: 1px solid #007fd5;
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 22px;
+      font-weight: bold; 
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s;
+    }
+    .submit:hover{
+      -webkit-transform: translate(0, 4px);
+      cursor: pointer;
+    }
+
     .sky {
       height:1000px;
-      background:#007fd5;
+      background:#a3d9ff;
       position:relative;
       overflow:hidden;
       -webkit-animation:sky_background 50s ease-out infinite;
@@ -106,18 +149,18 @@ html,body {
     
     @-webkit-keyframes sky_background {
       0% {
-        background:#007fd5;
-        color:#007fd5
-      }
-      
-      50% {
         background:#a3d9ff;
         color:#a3d9ff
       }
       
-      100% {
+      50% {
         background:#007fd5;
         color:#007fd5
+      }
+      
+      100% {
+        background:#a3d9ff;
+        color:#a3d9ff
       }
     }
     
@@ -177,18 +220,18 @@ html,body {
     
     @-moz-keyframes sky_background {
       0% {
-        background:#007fd5;
-        color:#007fd5
-      }
-      
-      50% {
-        background:#000;
+        background:#a3d9ff;
         color:#a3d9ff
       }
       
-      100% {
+      50% {
         background:#007fd5;
         color:#007fd5
+      }
+      
+      100% {
+        background:#a3d9ff;
+        color:#a3d9ff
       }
     }
     
