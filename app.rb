@@ -88,14 +88,3 @@ get '/feed' do
 
   erb :feed
 end
-
-
-
-get '/welcome' do  #sign-in should probably send you to /account
-#   if current_user
-#     erb :welcome 
-#   else
-#     flash[:notice] = "Please log in"
-#     redirect '/'
-#   end
-# end
