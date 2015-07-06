@@ -1,0 +1,17 @@
+<h1>Feed</h1>
+<div id="wrapper">
+
+  <% @posts.each do |post| %>
+  
+  <div class="post">
+    <h2> <%= posts.user.username %></h2>
+    
+    <p><%= posts.posttext %> </p>
+
+    <div class="tstamp"> <%= posts.posttime %></div>
+
+  </div>
+  
+  <% end %>
+
+</div>

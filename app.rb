@@ -6,11 +6,20 @@ require 'rack-flash'
 require 'bundler/setup'
 
 
+set :database, "sqlite3:microblog.sqlite3"
 enable :sessions
 
 configure(:development){set :database, "sqlite3:microblog.sqlite3"}
 
 use Rack::Flash, sweep: true
+
+
+def current_user
+  if session[:user_id]
+    User.find session[:user_id]
+  end
+end
+
 
 get '/' do
   if current_user
@@ -28,24 +37,19 @@ post '/sign-up' do
   confirmation = params[:confirm_password]
 
   if confirmation == params[:user][:password]
-    @user = User.create(params[:user])
-    flash[:notice] = "SIGNED UP #{@user.username}"
+
+    @user = User.create(params[:user])       
+    @user.create_profile(params[:profile])
+    flash[:notice] = "Welcome to Stream! Now your life is awesome!"
+    redirect '/profile'
   else
-    flash[:notice] = "Your password and confirmation did not match. Try Again."
+    flash[:alert] = "Your password and username don't match"
+
   end
 end
 
 get '/sign-in' do
   erb :signinup, :layout => false
-end
-
-get '/welcome' do
-  if current_user
-    erb :welcome 
-  else
-    flash[:notice] = "Please log in"
-    redirect '/'
-  end
 end
 
 post "/sign-in" do
@@ -64,11 +68,6 @@ post "/sign-in" do
   end
 end
 
-def current_user
-  if session[:user_id]
-    User.find session[:user_id]
-  end
-end
 
 get '/account' do
   @user = current_user
@@ -84,4 +83,10 @@ get '/signout' do
   session[:user_id] = nil
   flash[:notice] = "Signed Out Successfully.  Come back soon!"
   redirect '/'
+end
+
+get '/feed' do
+  @posts = Post.all
+
+  erb :feed
 end
