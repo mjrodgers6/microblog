@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="profile.css">
+    <meta charset='UTF-8'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Amatic+SC' rel='stylesheet' type='text/css'>
+    <title>Profile</title>
+</head>
+
+<body>
+
+    <h1>Stream</h1>
+    <div class="profile">
+  <!-- <script type="profile"></script> -->
+  <h1>Profile Page: <%= @user.username %> </h1>
+
+ <table>
+
+   <tr>
+     <td> UserID: </td>
+     <td> <%= @user.id %> </td>
+   </tr>
+
+   <tr>
+     <td> Username: </td>
+     <td> <%= @user.username %> </td>
+   </tr>
+
+   <tr>
+     <td> First Name: </td>
+     <td> <%= @user.fname %> </td>
+   </tr>
+
+   <tr>
+     <td> Last Name: </td>
+     <td> <%= @user.lname %> </td>
+   </tr>
+
+   <tr>
+     <td> Email Address: </td>
+     <td> <%= @user.email %> </td>
+   </tr>
+
+   <tr>
+     <td> Location: </td>
+     <td> <%= @user.location %> </td>
+   </tr>
+
+   <tr>
+     <td> Occupation: </td>
+     <td> <%= @user.occupation %> </td>
+   </tr>
+
+   <tr>
+     <td> Age: </td>
+     <td> <%= @user.age %> </td>
+   </tr>
+
+   <tr>
+     <td>Followers</td>
+   </tr>
+
+ </table>
+      
+    <div class="posts">
+      <form method="GET" action="/posts">
+        <input type="text" name="[post]posttext" placeholder="What's On Your Mind ?"><br> 
+      <input type="submit">
+      </form>
+    </div>
+</body>
+</html>

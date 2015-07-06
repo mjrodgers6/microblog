@@ -20,6 +20,12 @@ get '/' do
   end
 end
 
+get '/profile' do
+  @user = User.find(1)
+
+  erb :profile
+end
+
 get '/sign-up' do 
   erb :signup, :layout => false
 end
@@ -52,7 +58,7 @@ post "/sign-in" do
   username = params[:username]
   password = params[:password]
 
-  @user = User.where(username: username).first
+  @user = User.where(username: username)
 
   if @user.password == password
     session[:user_id] = @user.id
@@ -85,3 +91,15 @@ get '/signout' do
   flash[:notice] = "Signed Out Successfully.  Come back soon!"
   redirect '/'
 end
+
+
+ # if current_user
+ #     @user =User.find(session[:user_id])
+ #     flash[:notice] = "User #{@user.username}: logged in"
+ #      erb :profile
+ # else
+ #   flash[:notice] = "Please Login to see Your Profile"
+ #    erb :signin
+ # end
+ 
+
