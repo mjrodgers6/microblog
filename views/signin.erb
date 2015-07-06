@@ -11,15 +11,17 @@
 <body>
   <div class="sky">
     <h1>Stream</h1>
-    <div class="sign">
+    <div id="signin">
       <form method="POST" action="/sign-in">
         <input type="text" name="username" placeholder="Username"><br>
         <input type="password" name="password" placeholder="Password"><br>
-        <input type="submit">
+        <button type="submit" class="submit">Sign In</button><br><br>
+        <!-- <button type="button" class="submit" href="sign-up">Not a User? Sign Up Here</button> -->
       </form>
+      <h3>Not a Member? Sign up <a href="sign-up">HERE</a></h3> 
     </div>
 
-    <a href="sign-up">Sign Up</a> 
+    
     
     <div class="clouds_one"></div>
     <div class="clouds_two"></div>
