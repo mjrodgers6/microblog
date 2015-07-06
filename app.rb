@@ -30,10 +30,10 @@ post '/sign-up' do
   if confirmation == params[:user][:password]
     @user = User.create(params[:user])       
     @user.create_profile(params[:profile])
-
-    redirect '/welcome'
+    flash[:notice] = "Welcome to Stream! Now your life is awesome!"
+    redirect '/profile'
   else
-    "Your password and confirmation did not match. Try Again."
+    flash[:alert] = "Your password "
   end
 end
 
