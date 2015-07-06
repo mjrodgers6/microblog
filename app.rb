@@ -66,14 +66,6 @@ post "/sign-in" do
   end
 end
 
-get '/welcome' do  #sign-in should probably send you to /account
-  if current_user
-    erb :welcome 
-  else
-    flash[:notice] = "Please log in"
-    redirect '/'
-  end
-end
 
 get '/account' do
   @user = current_user
@@ -92,6 +84,18 @@ get '/signout' do
 end
 
 get '/feed' do
+  @posts = Post.all
 
   erb :feed
 end
+
+
+
+get '/welcome' do  #sign-in should probably send you to /account
+#   if current_user
+#     erb :welcome 
+#   else
+#     flash[:notice] = "Please log in"
+#     redirect '/'
+#   end
+# end
