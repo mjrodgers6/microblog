@@ -44,7 +44,7 @@ div.header{
   display: inline-block;
   text-align: center;
   width: 100%;
-  margin: 5px auto;
+  margin: 0px auto;
   background:#a3d9ff;
   position:relative;
   overflow:hidden;
@@ -64,8 +64,9 @@ h1{
 }
 
 #nav-menu {
+  /*margin-top: 94px;*/
   height: 100%;
-  background: white;
+  background: #007fd5;
   -moz-transition: all 500ms ease-in-out 0s;
   -o-transition: all 500ms ease-in-out 0s;
   -webkit-transition: all 500ms ease-in-out;
@@ -86,23 +87,23 @@ h1{
 #nav-menu .menu li a {
   display: block;
   text-decoration: none;
-  padding: 15px 25px;
-  color: #007fd5;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 25px;
+  padding: 10px 25px;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
 }
 #nav-menu .menu li a:hover {
-  color: white;
-  background: #a3d9ff;
+  color: #a3d9ff;
+  background: white;
 }
 #nav-menu.closed {
   width: 0%;
 }
 #nav-menu.open {
   width: 20%;
-/*  -moz-box-shadow: 0 0 20px 5px white;
-  -webkit-box-shadow: 0 0 20px 5px white;
-  box-shadow: 0 0 20px 5px white;*/
+  -moz-box-shadow: 0 0 20px 5px #a3d9ff;
+  -webkit-box-shadow: 0 0 20px 5px #a3d9ff;
+  box-shadow: 0 0 20px 5px #a3d9ff;
 }
 
 @media (max-width: 768px) {
@@ -157,7 +158,7 @@ h1{
 }
 
 .clouds_one {
-      background:url("cloud_one.png");
+      background:url("images/cloud_one.png");
       position:absolute;
       left:0;
       top:0;
@@ -173,7 +174,7 @@ h1{
     }
     
     .clouds_two {
-      background:url("cloud_two.png");
+      background:url("images/cloud_two.png");
       position:absolute;
       left:0;
       top:0;
@@ -189,7 +190,7 @@ h1{
     }
     
     .clouds_three {
-      background:url("cloud_three.png");
+      background:url("images/cloud_three.png");
       position:absolute;
       left:0;
       top:0;
