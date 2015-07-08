@@ -1,73 +1,48 @@
-<!DOCTYPE html>
-
-<html>
 <head>
     <link rel="stylesheet" type="text/css" href="profile.css">
-    <meta charset='UTF-8'>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Amatic+SC' rel='stylesheet' type='text/css'>
-    <title>Profile</title>
 </head>
 
-<body>
+  <!-- <h1>Stream</h1> -->
+<div id="profile">
+  <div id="profile-inner">
+    <%if session[:user_id] != nil %>
+    
+    
+  <h2> Welcome <%= @user.username %> </h2>
 
-    <h1>Stream</h1>
-    <div class="profile">
-  <!-- <script type="profile"></script> -->
-  <h1>Profile Page: <%= @user.username %> </h1>
+  <nav>
+    <ul>
+      <li> Username: <%= @user.username %> </li>
+      <li> First Name: <%= @user.fname %> </li>
+      <li> Last Name: <%= @user.lname %> </li>
+      <li> E-mail Address: <%= @user.email %> </li>  
+      <li> Location: <%= @user.profile.location %> </li>
+      <li> Occupation: <%= @user.profile.occupation %> </li>
+      <li> Age:  <%= @user.profile.age %></li>
+    </ul>
+ 
+  <% end %>
+  <!-- <a href ="/edit"> Edit Profile</a>
+  <a href ="/delete"> Delete Account </a> -->
+  </div>
 
- <table>
+  <div id="profilefeed">
 
-   <tr>
-     <td> UserID: </td>
-     <td> <%= @user.id %> </td>
-   </tr>
+  <form action="/post_feed" method="POST">
+    <label><b>Enter Your New Feed</b></label>
+    <input name="[user]feed" type="text">
+    <input type="submit" value="submit"><br>
+  </form>
+  <!-- <div class="clear"></div> -->
 
-   <tr>
-     <td> Username: </td>
-     <td> <%= @user.username %> </td>
-   </tr>
+  <h3>Your last 10 posts</h3>
+  <% current_user.posts.last(10).reverse.each do |x| %>
+  <p><%= x.posttext %></p>
+  <% end %>
 
-   <tr>
-     <td> First Name: </td>
-     <td> <%= @user.fname %> </td>
-   </tr>
+  </div>
+</div>     
 
-   <tr>
-     <td> Last Name: </td>
-     <td> <%= @user.lname %> </td>
-   </tr>
 
-   <tr>
-     <td> Email Address: </td>
-     <td> <%= @user.email %> </td>
-   </tr>
 
-   <tr>
-     <td> Location: </td>
-     <td> <%= @user.location %> </td>
-   </tr>
-
-   <tr>
-     <td> Occupation: </td>
-     <td> <%= @user.occupation %> </td>
-   </tr>
-
-   <tr>
-     <td> Age: </td>
-     <td> <%= @user.age %> </td>
-   </tr>
-
-   <tr>
-     <td>Followers</td>
-   </tr>
-
- </table>
-      
-    <div class="posts">
-      <form method="GET" action="/posts">
-        <input type="text" name="[post]posttext" placeholder="What's On Your Mind ?"><br> 
-      <input type="submit">
-      </form>
-    </div>
-</body>
-</html>
+  

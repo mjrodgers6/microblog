@@ -1,0 +1,66 @@
+
+<div id="sidebar">
+  <div id="profilepic">
+  
+  </div>
+    <p><b>About me</b><br><br>
+       User Name: &nbsp;<%= current_user.username %></p>
+    <p>Name: &nbsp;<%= current_user.fname %>&nbsp;<%= current_user.lname %></p>
+    <p>E-mail address:&nbsp;<%= current_user.email %></p>
+    <p>Location:&nbsp;<%= current_user.profile.location %></p>
+    <p>Occupation:&nbsp;<%= current_user.profile.occupation %></p>
+    <p>Age:&nbsp;<%= current_user.profile.age %></p>
+    
+</div>
+
+<!-- edit account details -->
+<div id="settings">
+
+  <div id="insideSettings">
+<h2><b>Change Your Info Below</b></h2><br>
+<form action="/change_info" method="POST">
+  <label style="margin-right: 20px;">Change your First name</label>
+  <input name="[user]fname" type="text">
+  <br><br><label style="margin-right: 18px;
+">Change your Last Name</label>
+  <input name="[user]lname" type="text">
+   <br><br><label style="
+    margin-right: 56px;
+">Change your Email</label>
+  <input name="[user]email" type="text">
+   <br><br><label style="
+    margin-right: 22px;
+">Change your Username</label>
+  <input name="[user]username" type="text">
+   <br><br><label style="
+    margin-right: 25px;
+">Change your Password</label>
+  <input name="[user]password" type="password">
+   <br><br><label style="
+    margin-right: 40px;
+">Change your Location</label>
+  <input name="[profile]location" type="text">
+   <br><br><label style="
+    margin-right: 15px;
+">Change your Occupation</label>
+  <input name="[profile]occupation" type="text">
+   <br><br><label style="
+    margin-right: 15px;">Change your Age</label>
+  <input name="[profile]age" type="number">
+   <br><br><label style="
+    margin-right: 15px;">
+ 
+   <br><br><input type="submit" value="submit">
+</form>
+
+
+<!-- delete account -->
+<p>Delete Your account</p>
+<form action="/account_delete" method="POST">
+  <label>Delete <%= current_user.username if current_user %>?</label>
+   <br><br><input type="submit" value="Delete ">
+
+</form>
+  </div>
+
+</div>
