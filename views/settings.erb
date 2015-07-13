@@ -1,0 +1,53 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="profile.css">
+</head>
+
+<div id="sidebar">
+
+  <ul>
+    <li><b>About me</b><br><br>
+       User Name: &nbsp;<%= current_user.username %></li>
+    <li>Name: &nbsp;<%= current_user.fname %>&nbsp;<%= current_user.lname %></li>
+    <li>E-mail address:&nbsp;<%= current_user.email %></li>
+    <li>Location:&nbsp;<%= current_user.profile.location %></li>
+    <li>Occupation:&nbsp;<%= current_user.profile.occupation %></li>
+    <li>Age:&nbsp;<%= current_user.profile.age %></li>
+    <ul>
+    
+</div>
+
+<!-- edit account details -->
+<div id="settings">
+  <div id="insideSettings">
+  <h2><b>Change Your Info Below</b></h2>
+  <br>
+
+  <form action="/change_info" method="POST">
+    <label>Change your First name</label>
+    <input name="[user]fname" type="text">
+    <br><br><label>Change your Last Name</label>
+    <input name="[user]lname" type="text">
+     <br><br><label>Change your E-mail</label>
+    <input name="[user]email" type="text">
+     <br><br><label>Change your Username</label>
+    <input name="[user]username" type="text">
+     <br><br><label>Change your Password</label>
+    <input name="[user]password" type="password">
+     <br><br><label>Change your Location</label>
+    <input name="[profile]location" type="text">
+     <br><br><label>Change your Occupation</label>
+    <input name="[profile]occupation" type="text">
+     <br><br><label>Change your Age</label>
+    <input name="[profile]age" type="number">
+     <br><br><input class="button" type="submit" value="submit">
+  </form>
+
+<!-- delete account -->
+<h2>Delete Your account</h2>
+<form action="/account_delete" method="POST">
+  <label>Delete <%= current_user.username if current_user %>?</label>
+   <br><input type="submit" value="Delete ">
+</form>
+
+  </div>
+</div>

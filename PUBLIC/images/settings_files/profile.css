@@ -1,0 +1,74 @@
+#profile{
+  width: 100%;
+  min-height: 900px;
+  /*margin: 0 auto;*/
+}
+#profile-inner h1, h2 {
+  text-align: center;
+  color :darkblue;
+}
+
+ul {
+  width: 40%;
+  margin: auto;
+  font: 20px Trebuchet;
+  color: darkblue;
+  border: 4px solid #ccc;
+  border-radius: 1em;
+  background:lightblue;
+  position: relative;
+  margin-bottom: 1%;
+  list-style-type: none;
+}
+li { 
+  width: 80%;
+  padding: 10px 5px;
+  text-align: center;
+}
+/*a {
+  margin-left: 2%;
+  font: 20px Trebuchet;
+  color:darkblue;
+}
+a:hover {
+  color:blue;
+}*/
+#profilefeed {
+  width: 50%;
+  margin: 1% 25%;
+  position: absolute;
+  text-align: center; 
+}
+#profilefeed input{
+  width: 100%;
+  height: 50px;
+  font: 20px Trebuchet;
+  text-align: center;
+}
+.clear{
+  clear: both;
+}
+
+#settings {
+ width: 100%;
+
+ font: 20px Trebuchet;
+}
+#settings form{
+  margin-left: 37%;
+}
+#settings label{
+  text-align: justify;
+  margin-right: 2%;
+
+}
+#settings input {
+  padding: 6px;
+ 
+}
+
+input.button {
+  padding:100px;
+ 
+}
+
