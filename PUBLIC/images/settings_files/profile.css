@@ -68,9 +68,7 @@ a:hover {
 }
 
 input.button {
-  border: 0px;
-  font-size:20px;
-  box-shadow: none;
+  padding:100px;
  
 }
 

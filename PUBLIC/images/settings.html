@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:4567/settings -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="./settings_files/main.css">
+</head>
+
+<body>
+
+  <a href="http://localhost:4567/signout">Sign Out</a>
+
+
+<p>
+
+    <link rel="stylesheet" type="text/css" href="./settings_files/profile.css">
+
+
+</p><div id="sidebar">
+
+  <ul>
+    <li><b>About me</b><br><br>
+       User Name: &nbsp;Mary</li>
+    <li>Name: &nbsp;Mary&nbsp;Mar</li>
+    <li>E-mail address:&nbsp;mar@gmail.com</li>
+    <li>Location:&nbsp;New Jersey, USA</li>
+    <li>Occupation:&nbsp;Barmaid</li>
+    <li>Age:&nbsp;22</li>
+    <ul>
+    
+</ul></ul></div>
+
+<!-- edit account details -->
+<div id="settings">
+  <div id="insideSettings">
+  <h2><b>Change Your Info Below</b></h2>
+  <br>
+
+  <form action="http://localhost:4567/change_info" method="POST">
+    <label>Change your First name</label>
+    <input name="[user]fname" type="text">
+    <br><br><label>Change your Last Name</label>
+    <input name="[user]lname" type="text">
+     <br><br><label>Change your E-mail</label>
+    <input name="[user]email" type="text">
+     <br><br><label>Change your Username</label>
+    <input name="[user]username" type="text">
+     <br><br><label>Change your Password</label>
+    <input name="[user]password" type="password">
+     <br><br><label>Change your Location</label>
+    <input name="[profile]location" type="text">
+     <br><br><label>Change your Occupation</label>
+    <input name="[profile]occupation" type="text">
+     <br><br><label>Change your Age</label>
+    <input name="[profile]age" type="number">
+     <br><br><input class="button" type="submit" value="submit">
+  </form>
+
+<!-- delete account -->
+<h2>Delete Your account</h2>
+<form action="http://localhost:4567/account_delete" method="POST">
+  <label>Delete Mary?</label>
+   <br><input type="submit" value="Delete ">
+</form>
+
+  </div>
+</div>
+<p></p>
+
+
+</body></html>
