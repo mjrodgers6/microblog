@@ -4,7 +4,7 @@
 
 <div id="sidebar">
 
-  <ul>
+  <ul class="setprofile">
     <li><b>About me</b><br><br>
        User Name: &nbsp;<%= current_user.username %></li>
     <li>Name: &nbsp;<%= current_user.fname %>&nbsp;<%= current_user.lname %></li>
@@ -12,10 +12,10 @@
     <li>Location:&nbsp;<%= current_user.profile.location %></li>
     <li>Occupation:&nbsp;<%= current_user.profile.occupation %></li>
     <li>Age:&nbsp;<%= current_user.profile.age %></li>
-    <ul>
-    
+    <ul><br>
+   
 </div>
-
+  <hr/> <br>
 <!-- edit account details -->
 <div id="settings">
   <div id="insideSettings">
@@ -43,11 +43,14 @@
   </form>
 
 <!-- delete account -->
-<h2>Delete Your account</h2>
-<form action="/account_delete" method="POST">
-  <label>Delete <%= current_user.username if current_user %>?</label>
+  <hr/><br>
+  
+  <h2>Delete Account</h2>
+  <br>
+  <form action="/account_delete" method="POST">
+  <label>Are you sure delete <%= current_user.username if current_user %>?</label>
    <br><input type="submit" value="Delete ">
-</form>
+  </form>
 
   </div>
 </div>

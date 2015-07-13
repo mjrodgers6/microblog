@@ -36,8 +36,8 @@
     <input type="submit" value="submit"><br>
   </form>
   <!-- <div class="clear"></div> -->
-
-  <h3>Your last 10 posts</h3>
+<br><br>
+  <h3>Your last 10 posts</h3><br>
   <% current_user.posts.last(10).reverse.each do |x| %>
   <p><%= x.posttext %></p>
   <% end %>
