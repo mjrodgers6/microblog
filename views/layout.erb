@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-
-  <title>TEST</title>
+  <title></title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="main.css">
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Amatic+SC' rel='stylesheet' type='text/css'>
@@ -10,14 +9,15 @@
 </head>
 <body>
   <div class="burger group">
-    <img class="cloud" src="/images/cloud.png">
+    <img class="cloud" src="images/cloud.png">
   </div>
 
   <nav id="nav-menu" class="closed">
     <ul class="menu">
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/post">Post</a></li>
       <li><a href="/feed">Feed</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/profile">Posts</a></li>
+      <li><a href="/settings">Settings</a></li>
       <li>
         <% if current_user %>
         <a href="/signout">Sign Out</a>
